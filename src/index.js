@@ -1,13 +1,19 @@
-import app from "./app.js";
-import dotenv from "dotenv";
-import connectionDB from "./db/connectionDB.js";
+import app from './app.js';
+import connectiondb from './db/connectionDB.js';
+import dotenv from 'dotenv';
+import orderRoutes from './routes/order.route.js';
 
 dotenv.config();
 
-// Connect to Port if connection is successfull
-connectionDB()
+const PORT = process.env.PORT || 5000;
+
+// Route Middleware
+app.use('/api/orders', orderRoutes);
+
+// Database & Server Initialization
+connectiondb()
 .then(()=>{
-    app.listen(process.env.PORT, ()=>{
-        console.log("Server is Running");
+    app.listen(PORT,()=>{
+        console.log("Server is running");
     })
 })

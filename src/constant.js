@@ -1,1 +1,1 @@
-export const DB_NAME = "UserInfo"; // Name of the database
+export const db_name = "djo_db";
