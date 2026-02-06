@@ -16,7 +16,7 @@ const createOrder = async (data) => {
       totalAmount,
       paymentType
     });
-
+    console.log(newOrder)
     return newOrder;
   } catch (error) {
     throw error; 
